@@ -186,8 +186,17 @@ body.dark .orb-3 { background: radial-gradient(circle at 45% 45%, #7a3820, #5a18
   flex: 1; overflow-x: hidden;
 }
 .wrap { overflow-x: hidden; }
-#filterPillsRow::-webkit-scrollbar,
-#filterPillsRow + div::-webkit-scrollbar { display: none; }
+#filterPillsRow::-webkit-scrollbar { display: none; }
+
+@media (min-width: 1024px) {
+  #filterPillsRow {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    overflow-x: visible !important;
+    padding-bottom: 0 !important;
+  }
+  #filterPillsRow .filter-btn { flex-shrink: unset !important; white-space: normal !important; text-align: center !important; }
+}
 
 /* ─────────────────────────────────────────────
    HOME PAGE — full height, centered
@@ -1084,7 +1093,7 @@ body.dark #darkFab { background: rgba(14,22,44,.7) !important; border-color: rgb
       </div>
 
       <!-- filter pills -->
-      <div style="display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;">
+      <div id="filterPillsRow" style="display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;">
         <button id="btnFilterAll"    onclick="filterStatus('all')"    class="filter-btn active" style="white-space:nowrap;flex-shrink:0;">ทั้งหมด (0)</button>
         <button id="btnFilterWait"   onclick="filterStatus('รอ')"     class="filter-btn" style="white-space:nowrap;flex-shrink:0;">รอจัดการ (0)</button>
         <button id="btnFilterDoing"  onclick="filterStatus('กำลัง')"  class="filter-btn" style="white-space:nowrap;flex-shrink:0;">กำลังดำเนินการ (0)</button>
