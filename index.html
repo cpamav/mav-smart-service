@@ -183,7 +183,7 @@ body.dark .orb-3 { background: radial-gradient(circle at 45% 45%, #7a3820, #5a18
   width: 100%; max-width: 520px;
   margin: 0 auto; padding: 0 16px;
   position: relative; z-index: 10;
-  flex: 1;
+  flex: 1; overflow-x: hidden;
 }
 
 /* ─────────────────────────────────────────────
@@ -1082,11 +1082,12 @@ body.dark #darkFab { background: rgba(14,22,44,.7) !important; border-color: rgb
 
       <!-- filter pills -->
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:12px;">
-        <button id="btnFilterAll"    onclick="filterStatus('all')"    class="filter-btn active" style="text-align:center;">ทั้งหมด (0)</button>
-        <button id="btnFilterWait"   onclick="filterStatus('รอ')"     class="filter-btn" style="text-align:center;">รอจัดการ (0)</button>
-        <button id="btnFilterDoing"  onclick="filterStatus('กำลัง')"  class="filter-btn" style="text-align:center;">กำลังดำเนินการ (0)</button>
-        <button id="btnFilterDone"   onclick="filterStatus('เสร็จ')"  class="filter-btn" style="text-align:center;">เสร็จสิ้น (0)</button>
-        <button id="btnFilterCancel" onclick="filterStatus('ยกเลิก')" class="filter-btn" style="text-align:center;">ยกเลิก (0)</button>
+        <button id="btnFilterAll"    onclick="filterStatus('all')"    class="filter-btn active" style="text-align:center;font-size:12px;">ทั้งหมด (0)</button>
+        <button id="btnFilterWait"   onclick="filterStatus('รอ')"     class="filter-btn" style="text-align:center;font-size:12px;">รอจัดการ (0)</button>
+        <button id="btnFilterDoing"  onclick="filterStatus('กำลัง')"  class="filter-btn" style="text-align:center;font-size:12px;">กำลังดำเนินการ (0)</button>
+        <button id="btnFilterDone"   onclick="filterStatus('เสร็จ')"  class="filter-btn" style="text-align:center;font-size:12px;grid-column:span 1;">เสร็จสิ้น (0)</button>
+        <button id="btnFilterCancel" onclick="filterStatus('ยกเลิก')" class="filter-btn" style="text-align:center;font-size:12px;grid-column:span 1;">ยกเลิก (0)</button>
+        <div></div>
       </div>
 
       <div id="paginationTop"></div>
