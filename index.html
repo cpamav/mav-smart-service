@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-<title>โสตฯ Service</title>
+<title>เวชนิทัศน์และโสตทัศนศึกษา</title>
 <style>
 
 /* ─────────────────────────────────────────────
@@ -767,6 +767,10 @@ body.dark #darkFab { background: rgba(14,22,44,.7) !important; border-color: rgb
   overflow: visible !important;
 }
 
+@keyframes splashLogoIn { from{opacity:0;transform:scale(.6) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+@keyframes splashTextIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+@keyframes splashDot { 0%,100%{opacity:.3;transform:scale(.7)} 50%{opacity:1;transform:scale(1.2)} }
+
 </style>
 </head>
 <body>
@@ -781,6 +785,87 @@ body.dark #darkFab { background: rgba(14,22,44,.7) !important; border-color: rgb
 <!-- ══════════════════════════════════════════
      HOME
 ══════════════════════════════════════════ -->
+<!-- Splash Screen -->
+<div id="splashScreen" style="position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,var(--bg-grad-a,#dce8ff) 0%,var(--bg-grad-b,#f0e0ff) 50%,var(--bg-grad-c,#ffe0e8) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:opacity .6s ease;">
+  <div style="position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#c4b5fd,#93c5fd);top:-60px;left:-60px;filter:blur(60px);opacity:.55;animation:orbDrift 6s ease-in-out infinite alternate;"></div>
+  <div style="position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,#fbcfe8,#f9a8d4);bottom:-40px;right:-40px;filter:blur(60px);opacity:.55;animation:orbDrift 8s ease-in-out infinite alternate-reverse;"></div>
+  <img src="https://raw.githubusercontent.com/abeltonyx/myimg/refs/heads/main/LogoHosOrangeWhite.png" style="width:76px;height:76px;object-fit:contain;border-radius:22px;box-shadow:0 8px 28px rgba(100,130,220,.22);animation:splashLogoIn .6s cubic-bezier(.16,1,.3,1) both;position:relative;z-index:1;">
+  <div style="font-size:16px;font-weight:600;color:var(--t1);text-align:center;line-height:1.5;animation:splashTextIn .6s .2s cubic-bezier(.16,1,.3,1) both;position:relative;z-index:1;">งานเวชนิทัศน์และ<br>โสตทัศนศึกษา</div>
+  <div style="font-size:11px;color:var(--p);letter-spacing:.18em;animation:splashTextIn .6s .35s cubic-bezier(.16,1,.3,1) both;position:relative;z-index:1;">Smart Service System</div>
+  <div style="display:flex;gap:6px;margin-top:6px;animation:splashTextIn .6s .5s cubic-bezier(.16,1,.3,1) both;position:relative;z-index:1;">
+    <span style="width:7px;height:7px;border-radius:50%;background:var(--p);animation:splashDot 1.2s ease-in-out infinite;"></span>
+    <span style="width:7px;height:7px;border-radius:50%;background:var(--p);animation:splashDot 1.2s .2s ease-in-out infinite;"></span>
+    <span style="width:7px;height:7px;border-radius:50%;background:var(--p);animation:splashDot 1.2s .4s ease-in-out infinite;"></span>
+  </div>
+</div>
+
+<!-- Off Hours Page -->
+<div id="offHours" class="page" style="display:none;justify-content:center;align-items:center;padding:40px 16px;min-height:100dvh;">
+  <div class="wrap" style="text-align:center;max-width:400px;">
+    <div class="card">
+      <div class="noise"></div>
+      <img src="https://raw.githubusercontent.com/abeltonyx/myimg/refs/heads/main/LogoHosOrangeWhite.png" style="width:64px;height:64px;object-fit:contain;border-radius:16px;margin:0 auto 6px;display:block;filter:drop-shadow(0 4px 12px rgba(100,130,220,.2));">
+      <div style="font-size:12px;color:var(--p);letter-spacing:.1em;margin-bottom:14px;">งานเวชนิทัศน์และโสตทัศนศึกษา</div>
+      <svg id="offHoursSvgClock" width="110" height="110" viewBox="0 0 140 140" style="display:block;margin:0 auto;filter:drop-shadow(0 4px 16px rgba(124,158,248,.25));">
+        <circle cx="70" cy="70" r="65" fill="rgba(255,255,255,.5)" stroke="rgba(255,255,255,.95)" stroke-width="2"/>
+        <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(124,158,248,.15)" stroke-width="0.5"/>
+        <g stroke="rgba(124,158,248,.5)" stroke-width="2" stroke-linecap="round">
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(0 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(30 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(60 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(90 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(120 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(150 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(180 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(210 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(240 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(270 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(300 70 70)"/>
+          <line x1="70" y1="14" x2="70" y2="22" transform="rotate(330 70 70)"/>
+        </g>
+        <line id="offHoursHH" x1="70" y1="70" x2="70" y2="36" stroke="#7c9ef8" stroke-width="4" stroke-linecap="round"/>
+        <line id="offHoursMH" x1="70" y1="70" x2="70" y2="24" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round"/>
+        <line id="offHoursSH" x1="70" y1="78" x2="70" y2="18" stroke="#f9a8d4" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="70" cy="70" r="4" fill="#7c9ef8"/>
+        <circle cx="70" cy="70" r="2" fill="white"/>
+      </svg>
+      <div id="offHoursClock" style="font-size:13px;color:rgba(20,30,50,.75);margin:8px 0 12px;"></div>
+
+      <!-- holiday badge -->
+      <div id="offHoursBadge" style="display:none;align-items:center;gap:6px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:99px;padding:5px 14px;font-size:12px;color:#c04040;margin-bottom:10px;">
+        <span class="material-symbols-rounded" style="font-size:15px;margin:0;color:#c04040;">event</span>
+        <span class="badge-text">วันหยุดราชการ</span>
+      </div>
+
+      <div class="brand" style="font-size:22px;margin-bottom:6px;">นอกเวลาทำการ</div>
+      <div style="width:36px;height:2px;background:var(--p);border-radius:99px;margin:0 auto 14px;"></div>
+      <div style="font-size:15px;color:var(--t2);line-height:1.9;margin-bottom:16px;">
+        ระบบให้บริการเฉพาะ<br>
+        <b style="color:var(--t1);font-weight:500;">วันจันทร์ – วันศุกร์</b><br>
+        เวลา <b style="color:var(--p);">08:30 – 16:30 น.</b><br>
+        <span style="font-size:13px;color:var(--t3);">(หยุดเสาร์ – อาทิตย์)</span>
+      </div>
+      <div style="width:100%;height:0.5px;background:var(--g-b2);margin-bottom:12px;"></div>
+      <button class="btn secondary" onclick="goSearch()" style="margin:0 0 12px;">
+        <span class="material-symbols-rounded">search</span> ติดตามสถานะงาน
+      </button>
+      <div style="width:100%;height:0.5px;background:var(--g-b2);margin-bottom:12px;"></div>
+      <button class="btn secondary" onclick="goLogin()" style="margin:0 0 14px;">
+        <span class="material-symbols-rounded">admin_panel_settings</span> เข้าสู่ระบบเจ้าหน้าที่
+      </button>
+      <div style="width:100%;height:0.5px;background:var(--g-b2);margin-bottom:12px;"></div>
+      <div style="font-size:11px;color:var(--t3);margin-bottom:6px;letter-spacing:.06em;">ติดต่อสอบถาม</div>
+      <div style="background:rgba(124,158,248,.06);border:1px solid rgba(124,158,248,.15);border-radius:12px;padding:10px 14px;">
+        <div style="font-size:15px;font-weight:500;color:var(--t1);display:flex;align-items:center;justify-content:center;gap:6px;">
+          <span class="material-symbols-rounded" style="font-size:16px;margin:0;color:var(--p);">phone_in_talk</span>
+          037-211-088 ต่อ 2516
+        </div>
+        <div style="font-size:12px;color:var(--t3);margin-top:3px;">วันจันทร์ – ศุกร์ เวลา 08:30 – 16:30 น.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="home" class="page active">
   <div class="home-inner">
     <img src="https://raw.githubusercontent.com/abeltonyx/myimg/refs/heads/main/LogoHosOrangeWhite.png" class="logo" alt="logo">
@@ -923,7 +1008,9 @@ body.dark #darkFab { background: rgba(14,22,44,.7) !important; border-color: rgb
         <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);display:flex;align-items:center;gap:5px;margin-bottom:8px;">
           <span class="material-symbols-rounded" style="font-size:13px;margin:0;">attach_file</span> ไฟล์แนบ (ถ้ามี)
         </div>
-        <input type="file" id="fileInput" style="margin-top:0;border:none;padding:0;background:transparent;box-shadow:none;font-size:13px;">
+        <input type="file" id="fileInput" multiple style="margin-top:0;border:none;padding:0;background:transparent;box-shadow:none;font-size:13px;" onchange="addFiles(this)">
+        <div id="fileListPreview" style="margin-top:6px;display:flex;flex-direction:column;gap:4px;"></div>
+        <div id="fileCount" style="font-size:11px;color:var(--t3);margin-top:4px;display:none;"></div>
         <div style="font-size:11px;color:var(--t3);margin-top:4px;">ไม่เกิน 25MB</div>
       </div>
 
@@ -998,6 +1085,10 @@ body.dark #darkFab { background: rgba(14,22,44,.7) !important; border-color: rgb
       <span class="material-symbols-rounded">logout</span>
     </button>
     <div class="topbar-title" id="adminPageTitle">Admin</div>
+    <button id="sysOverrideBtn" onclick="toggleSysOverride()" style="display:none;align-items:center;gap:4px;padding:5px 10px;border-radius:99px;border:none;cursor:pointer;font-family:inherit;font-size:12px;font-weight:500;background:rgba(200,210,230,.3);color:var(--t3);transition:all .2s;">
+      <span class="material-symbols-rounded" id="sysOverrideIcon" style="font-size:15px;margin:0;">power_settings_new</span>
+      <span id="sysOverrideLabel">ปิดอยู่</span>
+    </button>
     <button id="bellBtn" onclick="openNotif()" style="position:relative;background:none;border:none;cursor:pointer;padding:6px;margin-right:6px;">
       <span class="material-symbols-rounded" style="font-size:22px;color:var(--t2);margin:0;">notifications</span>
       <span id="bellBadge" style="display:none;position:absolute;top:2px;right:2px;width:16px;height:16px;background:#ef4444;border-radius:50%;font-size:10px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;line-height:1;">0</span>
@@ -1404,6 +1495,17 @@ body.dark #darkFab { background: rgba(14,22,44,.7) !important; border-color: rgb
       </div>
 
       <div class="help-divider"></div>
+
+      <!-- ติดต่อ -->
+      <div style="background:rgba(124,158,248,.08);border:1px solid rgba(124,158,248,.2);border-radius:var(--r2);padding:14px 15px;margin-bottom:14px;">
+        <div style="font-size:13px;font-weight:600;color:var(--p);margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+          <span class="material-symbols-rounded" style="font-size:16px;margin:0;">phone_in_talk</span> ติดต่องานเวชนิทัศน์ฯ
+        </div>
+        <div style="font-size:14px;color:var(--t1);font-weight:500;">037-211-088 ต่อ 2516</div>
+        <div style="font-size:12px;color:var(--t3);margin-top:3px;">วันจันทร์ – วันศุกร์ เวลา 08:30 – 16:30 น.</div>
+      </div>
+
+      <div class="help-divider"></div>
       <div style="background:rgba(255,235,180,.28);border:1px solid rgba(255,190,80,.25);border-radius:var(--r2);padding:14px 15px;">
         <div style="font-size:13px;font-weight:600;color:#92400e;margin-bottom:7px;display:flex;align-items:center;gap:6px;">
           <span class="material-symbols-rounded" style="color:#d97706;font-size:16px;margin:0;">lightbulb</span> เคล็ดลับ
@@ -1686,7 +1788,105 @@ function makeFp(sel) {
   return fp;
 }
 
+function isBusinessHours() {
+  const now = new Date();
+  const thai = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }));
+  const day = thai.getDay();
+  const mins = thai.getHours() * 60 + thai.getMinutes();
+  return day >= 1 && day <= 5 && mins >= 8*60+30 && mins < 16*60+30;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // ── check business hours + system override from GAS ──
+
+  function showOffHours(holiday, holidayName) {
+    document.getElementById('home').classList.remove('active');
+    document.getElementById('home').style.display = 'none';
+    const off = document.getElementById('offHours');
+    off.style.display = 'flex';
+    off.classList.add('active');
+
+    // ถ้าเป็นวันหยุดราชการ เปลี่ยนข้อความ
+    const titleEl = off.querySelector('.brand');
+    const badgeEl = document.getElementById('offHoursBadge');
+    if (holiday && holidayName) {
+      if (titleEl) titleEl.textContent = holidayName;
+      if (badgeEl) {
+        badgeEl.style.display = 'inline-flex';
+        badgeEl.querySelector('span.badge-text').textContent = 'วันหยุดราชการ';
+      }
+    } else {
+      if (titleEl) titleEl.textContent = 'นอกเวลาทำการ';
+      if (badgeEl) badgeEl.style.display = 'none';
+    }
+
+    const days = ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'];
+    function updateClock() {
+      const now = new Date();
+      const thai = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }));
+      const h = thai.getHours() % 12, m = thai.getMinutes(), s = thai.getSeconds();
+      const t = thai.toLocaleTimeString('th-TH', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+      document.getElementById('offHoursClock').textContent = t + ' น. (' + days[thai.getDay()] + ')';
+      const hh = document.getElementById('offHoursHH');
+      const mh = document.getElementById('offHoursMH');
+      const sh = document.getElementById('offHoursSH');
+      if(hh) hh.setAttribute('transform', `rotate(${h*30+m*0.5} 70 70)`);
+      if(mh) mh.setAttribute('transform', `rotate(${m*6} 70 70)`);
+      if(sh) sh.setAttribute('transform', `rotate(${s*6} 70 70)`);
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  }
+
+  // เช็ค GAS system status ก่อน
+  function restoreSession() {
+    const saved = sessionStorage.getItem('mavUser');
+    if (!saved) return;
+    try {
+      const res = JSON.parse(saved);
+      CURRENT_USER = res;
+      document.getElementById('adminName').innerText = res.name;
+      document.getElementById('adminPageTitle').innerText = res.role === 'admin' ? 'Admin' : 'Staff';
+      if (res.role === 'admin') {
+        const btn = document.getElementById('sysOverrideBtn');
+        if (btn) btn.style.display = 'flex';
+        gasCall('getSystemStatus').then(s => updateSysOverrideBtn(s && s.open));
+      }
+      document.getElementById('allJobBtn').style.display = res.role === 'admin' ? 'block' : 'none';
+      document.getElementById('userMenuBtn').style.display = res.role === 'admin' ? 'block' : 'none';
+      document.getElementById('resMenuBtn').style.display = res.role === 'admin' ? 'block' : 'none';
+      document.getElementById('adminNavTop').style.gridTemplateColumns = res.role === 'admin' ? '' : 'repeat(2,1fr)';
+      document.getElementById('adminNavBottom').style.display = res.role === 'admin' ? 'grid' : 'none';
+      document.getElementById('staffAccountBtn').style.display = res.role === 'admin' ? 'none' : 'block';
+      showSection('job', res.role === 'admin' ? 'all' : 'my');
+      switchPage('admin');
+      loadAllData();
+      gasCall('getResourceList').then(list => { if(list) { RESOURCE_LIST = list; buildResContainer(list); } });
+    } catch(e) {
+      sessionStorage.removeItem('mavUser');
+    }
+  }
+
+  function hideSplash() {
+    const splash = document.getElementById('splashScreen');
+    if (!splash) return;
+    splash.style.opacity = '0';
+    setTimeout(() => splash.style.display = 'none', 600);
+  }
+
+  // เช็ค GAS system status ก่อน
+  gasCall('getSystemStatus').then(res => {
+    if (!res || !res.open) {
+      if (res && res.holiday) { hideSplash(); showOffHours(true, res.holidayName); return; }
+      if (!isBusinessHours()) { hideSplash(); showOffHours(false, ''); return; }
+    }
+    hideSplash();
+    restoreSession();
+  }).catch(() => {
+    if (!isBusinessHours()) { hideSplash(); showOffHours(false, ''); return; }
+    hideSplash();
+    restoreSession();
+  });
   if(localStorage.getItem('dm')==='1'){
     document.body.classList.add('dark');
     const i=document.getElementById('darkIcon'),l=document.getElementById('darkLabel');
@@ -1719,6 +1919,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function goHome() { 
   CURRENT_USER = null;
+  sessionStorage.removeItem('mavUser');
   clearForm(); 
 
   // 2. ล้างตัวกรองวันที่ในหน้าแอดมิน (ใช้ตัวแปร fpStart, fpEnd ตามที่คุณมี)
@@ -1738,8 +1939,8 @@ function goHome() {
 
   // clear search
   clearSearch();
-  // 5. สลับกลับไปหน้าแรก
-  switchPage('home'); 
+  // 5. reload กลับไปหน้าแรก (splash จะจัดการเอง)
+  window.location.reload();
 }
 function goService() { clearForm();switchPage('service'); }
 function goSearch() { clearSearch(); switchPage('search'); }
@@ -1760,12 +1961,129 @@ function switchPage(id) {
     current.classList.add('exit');
     setTimeout(() => {
       current.classList.remove('active', 'exit');
+      current.style.display = '';
       next.classList.add('active');
       window.scrollTo(0, 0);
     }, 150);
   } else {
     next.classList.add('active');
     window.scrollTo(0, 0);
+  }
+}
+
+function toggleSysOverride() {
+  const label = document.getElementById('sysOverrideLabel');
+  if (!label) return;
+  const isOn = label.textContent.trim() === 'เปิดอยู่';
+  const msg = isOn ? 'ต้องการปิดระบบกลับเป็นปกติ?' : 'ต้องการเปิดระบบนอกเวลาทำการ?\n(ทุกคนจะเข้าใช้งานได้ทันที)';
+  if (!confirm(msg)) return;
+  const newState = !isOn;
+  // update UI ทันทีก่อน รอ GAS
+  updateSysOverrideBtn(newState);
+  gasCall('setSystemStatus', { open: newState }).catch(() => {
+    // ถ้า error rollback
+    updateSysOverrideBtn(isOn);
+    alert('เกิดข้อผิดพลาด กรุณาลองใหม่');
+  });
+}
+
+function updateSysOverrideBtn(isOn) {
+  const btn = document.getElementById('sysOverrideBtn');
+  const icon = document.getElementById('sysOverrideIcon');
+  const label = document.getElementById('sysOverrideLabel');
+  if (!btn || !icon || !label) return;
+  if (isOn) {
+    btn.style.background = 'rgba(16,185,129,.12)';
+    btn.style.color = '#10b981';
+    btn.style.border = '1px solid rgba(16,185,129,.25)';
+    icon.textContent = 'power_settings_new';
+    label.textContent = 'เปิดอยู่';
+  } else {
+    btn.style.background = 'rgba(200,210,230,.3)';
+    btn.style.color = 'var(--t3)';
+    btn.style.border = 'none';
+    icon.textContent = 'power_settings_new';
+    label.textContent = 'ปิดอยู่';
+  }
+}
+
+// accumulated file list
+let _files = [];
+
+function addFiles(input) {
+  Array.from(input.files).forEach(f => {
+    if (!_files.find(x => x.name === f.name && x.size === f.size)) {
+      _files.push(f);
+    }
+  });
+  input.value = '';
+  renderFileList();
+}
+
+function removeFile(idx) {
+  _files.splice(idx, 1);
+  renderFileList();
+}
+
+function openLightbox(url) {
+  let lb = document.getElementById('imgLightbox');
+  if (!lb) {
+    lb = document.createElement('div');
+    lb.id = 'imgLightbox';
+    lb.style.cssText = 'position:fixed;inset:0;z-index:99999;background:rgba(8,14,26,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;';
+    lb.onclick = (e) => { if(e.target === lb) closeLightbox(); };
+    document.body.appendChild(lb);
+  }
+  lb.innerHTML = `
+    <div style="position:relative;max-width:100%;max-height:90dvh;">
+      <img src="${url}" style="max-width:100%;max-height:85dvh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.4);display:block;">
+      <button onclick="closeLightbox()" style="position:absolute;top:-12px;right:-12px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);">
+        <span class="material-symbols-rounded" style="font-size:16px;margin:0;color:#18243c;">close</span>
+      </button>
+    </div>`;
+  lb.style.display = 'flex';
+}
+
+function closeLightbox() {
+  const lb = document.getElementById('imgLightbox');
+  if (lb) lb.style.display = 'none';
+}
+
+function renderFileList() {
+  const preview = document.getElementById('fileListPreview');
+  const count = document.getElementById('fileCount');
+  if (!preview) return;
+  preview.innerHTML = '';
+  _files.forEach((f, i) => {
+    const isImg = f.type.startsWith('image/');
+    const item = document.createElement('div');
+    item.style.cssText = 'display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.85);border-radius:10px;padding:6px 10px;';
+    if (isImg) {
+      const url = URL.createObjectURL(f);
+      item.innerHTML = `
+        <img src="${url}" style="width:34px;height:34px;border-radius:6px;object-fit:cover;flex-shrink:0;cursor:pointer;" onclick="openLightbox('${url}')">
+        <div style="flex:1;min-width:0;"><div style="font-size:12px;color:var(--t1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${f.name}</div><div style="font-size:10px;color:var(--t3);">${(f.size/1024).toFixed(0)} KB</div></div>
+        <button onclick="removeFile(${i})" style="width:22px;height:22px;border-radius:50%;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0;">
+          <span class="material-symbols-rounded" style="font-size:13px;margin:0;color:#ef4444;">close</span>
+        </button>`;
+    } else {
+      const icons = {'pdf':'picture_as_pdf','doc':'description','docx':'description','xls':'table_chart','xlsx':'table_chart','ppt':'slideshow','pptx':'slideshow'};
+      const ext = f.name.split('.').pop().toLowerCase();
+      const icon = icons[ext] || 'attach_file';
+      item.innerHTML = `
+        <div style="width:34px;height:34px;border-radius:6px;background:rgba(124,158,248,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-rounded" style="font-size:18px;margin:0;color:var(--p);">${icon}</span>
+        </div>
+        <div style="flex:1;min-width:0;"><div style="font-size:12px;color:var(--t1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${f.name}</div><div style="font-size:10px;color:var(--t3);">${(f.size/1024).toFixed(0)} KB</div></div>
+        <button onclick="removeFile(${i})" style="width:22px;height:22px;border-radius:50%;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0;">
+          <span class="material-symbols-rounded" style="font-size:13px;margin:0;color:#ef4444;">close</span>
+        </button>`;
+    }
+    preview.appendChild(item);
+  });
+  if (count) {
+    count.style.display = _files.length > 0 ? 'block' : 'none';
+    count.textContent = _files.length + ' ไฟล์เลือกแล้ว';
   }
 }
 
@@ -1829,29 +2147,37 @@ function submitService() {
     document.getElementById('serviceResult').innerText = "กรุณากรอกเบอร์ภายใน 4 หลัก"; return;
   }
 
-  // ดึงข้อมูลไฟล์มาเช็คก่อนเปลี่ยนสถานะปุ่ม
-  const fileObj = document.getElementById('fileInput').files[0];
-  
-  // --- เพิ่มการเช็คขนาดไฟล์ 25MB ตรงนี้ ---
-  if (fileObj) {
-    const maxSize = 25 * 1024 * 1024; // 25MB
-    if (fileObj.size > maxSize) {
-      document.getElementById('serviceResult').innerText = "ขนาดไฟล์ต้องไม่เกิน 25MB";
-      return; // หยุดการทำงานถ้าไฟล์ใหญ่เกินไป
+  const files = _files.length > 0 ? _files : Array.from(document.getElementById('fileInput').files);
+
+  // เช็คขนาดไฟล์ทุกอัน ไม่เกิน 25MB ต่อไฟล์
+  const maxSize = 25 * 1024 * 1024;
+  for (let i = 0; i < files.length; i++) {
+    if (files[i].size > maxSize) {
+      document.getElementById('serviceResult').innerText = `ไฟล์ "${files[i].name}" ขนาดเกิน 25MB`;
+      return;
     }
   }
-  // ------------------------------------
 
-  // เปลี่ยนสถานะปุ่มเป็นกำลังโหลด
   const btn = document.getElementById('submitBtn');
-  btn.innerHTML = `<span class="material-symbols-rounded" style="animation: spin 1s linear infinite;">cached</span> กำลังประมวลผล...`; 
+  btn.innerHTML = `<span class="material-symbols-rounded" style="animation: spin 1s linear infinite;">cached</span> กำลังประมวลผล...`;
   btn.disabled = true;
 
-  if(fileObj) {
-    const reader = new FileReader();
-    reader.onload = () => { d.file = { data: reader.result.split(',')[1], name: fileObj.name, type: fileObj.type }; executeSubmit(d, btn); };
-    reader.readAsDataURL(fileObj);
-  } else { executeSubmit(d, btn); }
+  if (files.length > 0) {
+    const readers = [];
+    for (let i = 0; i < files.length; i++) {
+      readers.push(new Promise(resolve => {
+        const reader = new FileReader();
+        reader.onload = () => resolve({ data: reader.result.split(',')[1], name: files[i].name, type: files[i].type });
+        reader.readAsDataURL(files[i]);
+      }));
+    }
+    Promise.all(readers).then(fileList => {
+      d.files = fileList;
+      executeSubmit(d, btn);
+    });
+  } else {
+    executeSubmit(d, btn);
+  }
 }
 
 function executeSubmit(payload, btn) {
@@ -1930,8 +2256,14 @@ function login() {
     btn.innerHTML = "เข้าสู่ระบบ"; btn.disabled = false;
     if(res.success) {
       CURRENT_USER = res;
+      sessionStorage.setItem('mavUser', JSON.stringify(res));
       document.getElementById('adminName').innerText = res.name;
       document.getElementById('adminPageTitle').innerText = res.role === 'admin' ? 'Admin' : 'Staff';
+      if (res.role === 'admin') {
+        const btn = document.getElementById('sysOverrideBtn');
+        if (btn) btn.style.display = 'flex';
+        gasCall('getSystemStatus').then(s => updateSysOverrideBtn(s && s.open));
+      }
       document.getElementById('allJobBtn').style.display = res.role === 'admin' ? 'block' : 'none';
       document.getElementById('userMenuBtn').style.display = res.role === 'admin' ? 'block' : 'none';
       document.getElementById('resMenuBtn').style.display = res.role === 'admin' ? 'block' : 'none';
@@ -1970,10 +2302,10 @@ function showSection(sec, jobViewType) {
 
 function loadAllData() {
   document.getElementById('adminList').innerHTML = loadingHTML;
-  gasCall('getAllData').then(data => { ALL_JOBS = data; checkNewJobs(data); renderJobs(); }).catch(() => {
+  gasCall('getUsers').then(users => { ALL_USERS = users; updateAssignDropdown(); renderUsers(); }).catch(() => {});
+  return gasCall('getAllData').then(data => { ALL_JOBS = data; checkNewJobs(data); renderJobs(); }).catch(() => {
     document.getElementById('adminList').innerHTML = "<div class='glass-card' style='text-align:center;'>โหลดข้อมูลไม่สำเร็จ กรุณาดึงรีเฟรช</div>";
   });
-  gasCall('getUsers').then(users => { ALL_USERS = users; updateAssignDropdown(); renderUsers(); }).catch(() => {});
 }
 
 function updateAssignDropdown() {
@@ -2090,7 +2422,11 @@ function renderPage(filtered) {
     if (d.status.includes("กำลัง"))  { sc="#3b82f6"; sb="rgba(59, 130, 246, 0.15)"; }
     if (d.status.includes("ยกเลิก")) { sc="#ef4444"; sb="rgba(239, 68, 68, 0.15)"; }
 
-    let fileBtn = d.fileUrl ? `<a href="${d.fileUrl}" target="_blank" style="color:var(--p); text-decoration:none; font-weight:700; display:inline-flex; align-items:center; margin-top:8px; background:rgba(37,99,235,0.1); padding:6px 12px; border-radius:99px;"><span class="material-symbols-rounded" style="font-size:16px;">attachment</span> เปิดดูไฟล์แนบ</a><br>` : "";
+    let fileBtn = '';
+    if (d.fileUrl) {
+      const urls = d.fileUrl.split(', ').filter(Boolean);
+      fileBtn = urls.map((url, i) => `<a href="${url}" target="_blank" style="color:var(--p); text-decoration:none; font-weight:700; display:inline-flex; align-items:center; margin-top:8px; background:rgba(37,99,235,0.1); padding:6px 12px; border-radius:99px;"><span class="material-symbols-rounded" style="font-size:16px;">attachment</span> ไฟล์แนบ${urls.length > 1 ? ' '+(i+1) : ''}</a><br>`).join('');
+    }
 
     html += `
       <div class="glass-card" style="border-left:6px solid ${sc};padding:0;overflow:hidden;">
@@ -2626,6 +2962,9 @@ function clearForm() {
   if(np) np.clear();
   // ล้างไฟล์และ error
   var fi = document.getElementById('fileInput'); if(fi) fi.value = '';
+  var fp = document.getElementById('fileListPreview'); if(fp) fp.innerHTML = '';
+  var fc = document.getElementById('fileCount'); if(fc) fc.style.display = 'none';
+  _files = [];
   var sr = document.getElementById('serviceResult'); if(sr) sr.innerText = '';
 }
 // ── PWA Install Prompt (Android) ──
@@ -2846,6 +3185,21 @@ function renderNotifList() {
 }
 
 function openNotif() {
+  const notifList = document.getElementById('notifList');
+  if (notifList) notifList.innerHTML = '<div style="text-align:center;padding:20px;color:var(--t3);font-size:13px;">กำลังโหลด...</div>';
+  document.getElementById('notifModal').style.display = 'flex';
+
+  // ดึงเฉพาะข้อมูลงาน ไม่ re-render หน้าหลัก
+  gasCall('getAllData').then(data => {
+    ALL_JOBS = data;
+    checkNewJobs(data);
+    renderNotif();
+  }).catch(() => {
+    renderNotif(); // fallback ใช้ข้อมูลเก่า
+  });
+}
+
+function renderNotif() {
   const isAdmin = CURRENT_USER && CURRENT_USER.role === 'admin';
   const tabs = document.getElementById('notifTabs');
   tabs.style.display = isAdmin ? 'flex' : 'none';
@@ -2884,7 +3238,6 @@ function openNotif() {
   document.getElementById('tabMyJobs').classList.add('active');
   document.getElementById('tabNewJobs').classList.remove('active');
   renderNotifList();
-  document.getElementById('notifModal').style.display = 'flex';
 }
 
 function closeNotif() {
@@ -2901,7 +3254,7 @@ function acceptJob(jobId) {
   };
   gasCall('updateJob', { payload }).then(() => {
     gasCall('getAllData').then(data => {
-      ALL_JOBS = data; checkNewJobs(data); renderNotifList();
+      ALL_JOBS = data; checkNewJobs(data); renderNotifList(); renderJobs();
     }).catch(() => {});
   }).catch(e => { if (btn) setLoading(btn, false); alert(e.message); });
 }
@@ -2957,7 +3310,7 @@ function claimJob(jobId) {
   };
   gasCall('updateJob', { payload }).then(() => {
     gasCall('getAllData').then(data => {
-      ALL_JOBS = data; checkNewJobs(data); renderNotifList();
+      ALL_JOBS = data; checkNewJobs(data); renderNotifList(); renderJobs();
     }).catch(() => {});
   }).catch(e => { if (btn) setLoading(btn, false); alert(e.message); });
 }
