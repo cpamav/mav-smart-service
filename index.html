@@ -79,6 +79,8 @@ body.dark {
 *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 input, textarea, select { -webkit-user-select: text; user-select: text; }
 p, span, div, h1, h2, h3, label { -webkit-user-select: none; user-select: none; }
+.glass-card, .glass-card * { -webkit-user-select: text !important; user-select: text !important; }
+.no-select, .no-select * { -webkit-user-select: none !important; user-select: none !important; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
@@ -695,6 +697,9 @@ body.dark .res-group { background: rgba(255,255,255,.04); border-color: var(--g-
 }
 .desktop-only { display: grid; }
 .mobile-only { display: none !important; }
+@media (min-width: 501px) {
+  #userMenuBtn, #staffAccountBtn, #adminAccBtn { grid-column: span 2; }
+}
 @media (max-width: 500px) {
   .admin-nav {
     display: grid !important;
@@ -2610,7 +2615,7 @@ function renderPage(filtered) {
             <span style="font-size:22px;font-weight:800;color:var(--p);line-height:1.2;flex-shrink:0;">#${d.id}</span>
             <div style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
               ${cdBadge(d.needDate, d.status)}
-              <span style="background:${sb};color:${sc};padding:6px 12px;border-radius:99px;font-size:13px;font-weight:700;">${d.status.replace(/[\u1000-\uFFFF⏳🔄✅❌]/g,'').trim()}</span>
+              <span class="no-select" style="background:${sb};color:${sc};padding:6px 12px;border-radius:99px;font-size:13px;font-weight:700;">${d.status.replace(/[\u1000-\uFFFF⏳🔄✅❌]/g,'').trim()}</span>
             </div>
           </div>
           <div style="font-size:17px;font-weight:600;color:var(--t2);line-height:1.4;margin-top:2px;word-break:break-word;overflow-wrap:break-word;">${d.fullName}</div>
@@ -2631,7 +2636,7 @@ function renderPage(filtered) {
         <div style="padding:8px 16px 14px;font-size:16px;line-height:1.8;word-break:break-word;overflow-wrap:break-word;">
           <b>ผู้รับผิดชอบ:</b> ${d.owner||'-'}<br>
           <b>หมายเหตุ:</b> ${d.note||'-'}
-          <button class="btn secondary" style="margin-top:10px;margin-bottom:0;padding:12px;border-radius:14px;" onclick="openEditModal('${d.id}')">
+          <button class="no-select btn secondary" style="margin-top:10px;margin-bottom:0;padding:12px;border-radius:14px;" onclick="openEditModal('${d.id}')">
             <span class="material-symbols-rounded">settings</span> จัดการงาน
           </button>
         </div>
@@ -2650,11 +2655,11 @@ function cdBadge(needDate, status) {
   const need = new Date(p[2], p[1]-1, p[0]);
   const today = new Date(); today.setHours(0,0,0,0);
   const days = Math.round((need - today) / 86400000);
-  if (days < 0) return `<span style="background:rgba(127,0,0,.20);color:#600;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">เกิน ${Math.abs(days)} วัน</span>`;
-  if (days === 0) return `<span style="background:rgba(239,68,68,.15);color:#991b1b;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">วันนี้!</span>`;
-  if (days === 1) return `<span style="background:rgba(239,68,68,.15);color:#991b1b;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">เหลือ 1 วัน</span>`;
-  if (days <= 3) return `<span style="background:rgba(249,115,22,.15);color:#9a3412;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">เหลือ ${days} วัน</span>`;
-  return `<span style="background:rgba(99,102,241,.12);color:#3730a3;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">เหลือ ${days} วัน</span>`;
+  if (days < 0) return `<span class="no-select" style="background:rgba(127,0,0,.20);color:#600;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">เกิน ${Math.abs(days)} วัน</span>`;
+  if (days === 0) return `<span class="no-select" style="background:rgba(239,68,68,.15);color:#991b1b;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">วันนี้!</span>`;
+  if (days === 1) return `<span class="no-select" style="background:rgba(239,68,68,.15);color:#991b1b;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">เหลือ 1 วัน</span>`;
+  if (days <= 3) return `<span class="no-select" style="background:rgba(249,115,22,.15);color:#9a3412;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">เหลือ ${days} วัน</span>`;
+  return `<span class="no-select" style="background:rgba(99,102,241,.12);color:#3730a3;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;">เหลือ ${days} วัน</span>`;
 }
 
 function toggleJobDetail(row) {
