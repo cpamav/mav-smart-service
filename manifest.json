@@ -10,12 +10,12 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/abeltonyx/test-soat/refs/heads/main/iconnn.png",
+      "src": "https://raw.githubusercontent.com/cpamav/mav-smart-service/refs/heads/main/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://raw.githubusercontent.com/abeltonyx/test-soat/refs/heads/main/iconnn.png",
+      "src": "https://raw.githubusercontent.com/cpamav/mav-smart-service/refs/heads/main/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
